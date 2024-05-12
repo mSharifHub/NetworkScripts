@@ -3,7 +3,6 @@ import subprocess
 import optparse
 import re
 
-
 def get_arguments():
     parser = optparse.OptionParser()
     parser.add_option("-i", "--interface", dest="interface", help="Interface to change its MAC address")
@@ -18,8 +17,9 @@ def get_arguments():
 
 
 def is_valid_mac(mac):
-    pattern = re.compile(r'^([0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2})')
+    pattern = re.compile(r'^([0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}$')
     return pattern.match(mac)
+
 
 
 options = get_arguments()
